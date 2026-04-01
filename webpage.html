@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A. Rithika Sri | Aspiring Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import "C:\Users\Rithika Sri\Desktop\vs code projects\me.jpg";
+         :root {
+            --primary: #3b82f6;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        .tail-container * {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .hero-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .navbar {
+            backdrop-filter: blur(12px);
+        }
+        
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+        
+        .section-header {
+            position: relative;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            bottom: -4px;
+            left: 0;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+
+<body class="tail-container bg-zinc-950 text-zinc-100">
+    <!-- NAVBAR -->
+    <nav class="navbar bg-zinc-950/80 border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <!-- Logo / Name -->
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">R</div>
+                <h1 class="hero-font text-2xl font-semibold tracking-tighter">Rithika Sri</h1>
+            </div>
+
+            <!-- Menu -->
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-blue-400 flex items-center gap-x-1">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#about" class="hover:text-blue-400 flex items-center gap-x-1">
+                    <i class="fas fa-user"></i> About
+                </a>
+                <a href="#education" class="hover:text-blue-400 flex items-center gap-x-1">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </a>
+                <a href="#skills" class="hover:text-blue-400 flex items-center gap-x-1">
+                    <i class="fas fa-tools"></i> Skills
+                </a>
+                <a href="#projects" class="hover:text-blue-400 flex items-center gap-x-1">
+                    <i class="fas fa-folder"></i> Projects
+                </a>
+                <a href="#contact" class="hover:text-blue-400 flex items-center gap-x-1">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
+                <i class="fas fa-bars" id="menu-icon"></i>
+            </button>
+
+            <!-- Resume Button -->
+            <a href="#" onclick="alert('Resume PDF coming soon! You can add your own later 😊')" class="hidden md:flex items-center gap-x-2 bg-blue-600 hover:bg-blue-500 px-5 py-2.5 rounded-3xl text-sm font-semibold">
+                <i class="fas fa-download"></i> Download Resume
+            </a>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-t border-zinc-800 px-6 py-4">
+            <div class="flex flex-col gap-y-4 text-sm font-medium">
+                <a href="#home" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 py-2 hover:text-blue-400">
+                    <i class="fas fa-home w-5"></i> Home
+                </a>
+                <a href="#about" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 py-2 hover:text-blue-400">
+                    <i class="fas fa-user w-5"></i> About
+                </a>
+                <a href="#education" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 py-2 hover:text-blue-400">
+                    <i class="fas fa-graduation-cap w-5"></i> Education
+                </a>
+                <a href="#skills" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 py-2 hover:text-blue-400">
+                    <i class="fas fa-tools w-5"></i> Skills
+                </a>
+                <a href="#projects" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 py-2 hover:text-blue-400">
+                    <i class="fas fa-folder w-5"></i> Projects
+                </a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 py-2 hover:text-blue-400">
+                    <i class="fas fa-envelope w-5"></i> Contact
+                </a>
+                <div class="pt-4 border-t border-zinc-800">
+                    <a href="#" onclick="toggleMobileMenu();alert('Resume PDF coming soon!')" class="flex justify-center items-center gap-x-2 bg-blue-600 hover:bg-blue-500 w-full py-3 rounded-3xl text-sm font-semibold">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="max-w-7xl mx-auto px-6 pt-16 pb-20 grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+            <div class="inline-flex items-center gap-x-2 bg-zinc-900 text-blue-400 text-sm font-medium px-4 py-2 rounded-3xl">
+                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                1st Year • AI & DS • Learing in Process
+            </div>
+
+            <h1 class="hero-font text-6xl md:text-7xl font-semibold leading-none tracking-tighter">
+                Hi, I'm <span class="text-blue-400">A. Rithika Sri</span>
+            </h1>
+
+            <p class="text-2xl md:text-3xl text-zinc-400 font-light">
+                Aspiring Software Developer &amp; Future Full Stack Engineer
+            </p>
+
+            <p class="text-lg text-zinc-400 max-w-md">
+                Coordinator at 7th Sense Association • NSCET<br> Turning ideas into clean code, one project at a time.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+                <a href="#projects" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-3xl text-lg">
+                    See My Projects
+                    <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+
+                <a href="#contact" class="inline-flex items-center justify-center border border-zinc-300 hover:border-blue-400 font-semibold px-8 py-4 rounded-3xl text-lg">
+                    Let's Connect
+                </a>
+
+                <a href="https://www.linkedin.com/in/rithikasri" target="_blank" class="inline-flex items-center justify-center bg-zinc-800 hover:bg-zinc-700 px-6 py-4 rounded-3xl">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="flex gap-x-8 text-sm">
+                <div>
+                    <span class="block text-4xl font-semibold text-blue-400">3</span>
+                    <span class="text-zinc-400">Projects Built</span>
+                </div>
+                <div>
+                    <span class="block text-4xl font-semibold text-blue-400">8+</span>
+                    <span class="text-zinc-400">Skills Mastered</span>
+                </div>
+                <div>
+                    <span class="block text-4xl font-semibold text-blue-400">1st</span>
+                    <span class="text-zinc-400">Year AI &amp; DS</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo -->
+        <div class="flex justify-center md:justify-end">
+            <div class="relative">
+                <div class="absolute -inset-6 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-[3rem] rotate-6 opacity-20 blur-xl"></div>
+                <img src="me.jpg" alt="A. Rithika Sri" class="w-80 md:w-96 h-80 md:h-96 object-cover rounded-3xl shadow-2xl border-8 border-zinc-900 relative z-10">
+                <!-- Badge -->
+                <div class="absolute -bottom-3 -right-3 bg-zinc-900 text-white text-xs font-bold px-5 py-2 rounded-3xl shadow-xl flex items-center gap-x-2">
+                    <i class="fas fa-star text-amber-400"></i> Coordinator • 7th Sense
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="bg-zinc-900 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-header text-4xl font-semibold mb-4">About Me</h2>
+            <p class="text-zinc-400 max-w-2xl mb-12">
+                Passionate 1st-year Artificial Intelligence &amp; Data Science student at NSCET with a strong drive to become a Software / Full Stack Developer. Currently honing my skills in problem-solving, coding, and creative design. As Coordinator of 7th Sense Association,
+                I love leading initiatives that empower students to <strong>Learn • Build • Lead</strong>.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-zinc-950 p-8 rounded-3xl border border-zinc-800">
+                    <i class="fas fa-code text-5xl text-blue-400 mb-6"></i>
+                    <h4 class="text-xl font-semibold mb-2">Frontend Foundation</h4>
+                    <p class="text-zinc-400">Building clean, responsive UIs with HTML, CSS, and planning to add JavaScript interactivity soon.</p>
+                </div>
+                <div class="bg-zinc-950 p-8 rounded-3xl border border-zinc-800">
+                    <i class="fas fa-brain text-5xl text-blue-400 mb-6"></i>
+                    <h4 class="text-xl font-semibold mb-2">Problem Solver</h4>
+                    <p class="text-zinc-400">From smart waste management systems to personalized forms — I enjoy turning real-world problems into working solutions.</p>
+                </div>
+                <div class="bg-zinc-950 p-8 rounded-3xl border border-zinc-800">
+                    <i class="fas fa-users text-5xl text-blue-400 mb-6"></i>
+                    <h4 class="text-xl font-semibold mb-2">Leader &amp; Creator</h4>
+                    <p class="text-zinc-400">Schooling at N.S. Girls HR. Sec. School, Theni • Love editing videos (Kinemaster, InShot), designing in Canva &amp; Photoshop, and inspiring others through 7th Sense Association.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-header text-4xl font-semibold mb-12">Education</h2>
+
+            <div class="space-y-8">
+                <!-- College -->
+                <div class="flex flex-col md:flex-row gap-8 bg-zinc-900 rounded-3xl p-8">
+                    <div class="md:w-64 flex-shrink-0">
+                        <div class="text-blue-400 font-mono text-sm">2025 — Present</div>
+                        <h3 class="text-2xl font-semibold">NSCET</h3>
+                        <p class="text-zinc-400">B.Tech • Artificial Intelligence &amp; Data Science</p>
+                        <p class="text-xs bg-blue-950 text-blue-300 px-3 py-1 rounded-3xl w-fit mt-3">1st Year</p>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-zinc-300">Currently building strong foundations in programming, AI concepts, and full-stack development. Actively participating in tech clubs and self-learning modern web technologies.</p>
+                    </div>
+                </div>
+
+                <!-- School -->
+                <div class="flex flex-col md:flex-row gap-8 bg-zinc-900 rounded-3xl p-8">
+                    <div class="md:w-64 flex-shrink-0">
+                        <div class="text-blue-400 font-mono text-sm">Completed</div>
+                        <h3 class="text-2xl font-semibold">N.S. Girls HR. Sec. School, Theni</h3>
+                        <p class="text-zinc-400">Higher Secondary Education</p>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-zinc-300">Developed strong discipline, leadership qualities, and a passion for technology during my school years.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="bg-zinc-900 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-header text-4xl font-semibold mb-12">Skills &amp; Tools</h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    <i class="fab fa-cuttlefish"></i> C++
+                </div>
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    <i class="fab fa-cuttlefish"></i> C
+                </div>
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    <i class="fab fa-python"></i> Python
+                </div>
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    HTML
+                </div>
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    CSS
+                </div>
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    <i class="fas fa-laptop-code"></i> Problem Solving
+                </div>
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    Canva
+                </div>
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    Adobe Photoshop
+                </div>
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    KineMaster
+                </div>
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    InShot
+                </div>
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    <i class="fas fa-users"></i> Leadership
+                </div>
+                <div class="skill-pill bg-zinc-950 hover:bg-blue-950 border border-zinc-700 hover:border-blue-400 flex items-center justify-center gap-x-3 px-6 py-5 rounded-3xl text-lg font-medium">
+                    <i class="fas fa-comment-dots"></i> Communication
+                </div>
+            </div>
+
+            <p class="text-center text-zinc-400 mt-10 text-sm">+ More skills coming as I continue learning JavaScript, React, and backend technologies</p>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-baseline mb-12">
+                <h2 class="section-header text-4xl font-semibold">Featured Projects</h2>
+                <a href="#" onclick="alert('Great! You can add GitHub links later 🚀')" class="flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium">
+                    View all on GitHub <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                    <div class="h-2 bg-gradient-to-r from-blue-400 to-cyan-400"></div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="px-3 py-1 bg-blue-950 text-blue-400 text-xs font-semibold rounded-3xl">HTML • CSS</span>
+                            </div>
+                            <i class="fas fa-file-alt text-4xl text-zinc-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Personalized Survey Form</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-8">
+                            Built a clean, accessible, responsive survey form with semantic HTML, proper form elements, validation, and beautiful UI. Focused on UX, spacing, and accessibility. Next step: adding JavaScript for full interactivity.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-medium text-zinc-400">
+                            <div class="flex -space-x-2">
+                                <span class="px-3 py-1 bg-zinc-800 rounded-3xl">Frontend</span>
+                            </div>
+                            <span class="text-blue-400">Self Project • Ongoing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                    <div class="h-2 bg-gradient-to-r from-emerald-400 to-teal-400"></div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="px-3 py-1 bg-emerald-950 text-emerald-400 text-xs font-semibold rounded-3xl">HTML • CSS • Design</span>
+                            </div>
+                            <i class="fas fa-globe text-4xl text-zinc-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Learn. Build. Lead. Event Website</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-8">
+                            Designed the landing page for a student empowerment event themed “Learn. Build. Lead.” Focused on modern design thinking, creative layout, and front-end development. My first big design attempt!
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-medium text-zinc-400">
+                            <div class="flex -space-x-2">
+                                <span class="px-3 py-1 bg-zinc-800 rounded-3xl">Event Site</span>
+                            </div>
+                            <span class="text-emerald-400">In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                    <div class="h-2 bg-gradient-to-r from-orange-400 to-amber-400"></div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="px-3 py-1 bg-orange-950 text-orange-400 text-xs font-semibold rounded-3xl">Python</span>
+                            </div>
+                            <i class="fas fa-recycle text-4xl text-zinc-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Smart Waste Collection System</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-8">
+                            Built a simulation for smart city waste management. Features: add bins, monitor fill levels (0-100%), detect full bins, update status using CSV files. Applied lists, dictionaries, and file handling to solve a real environmental problem.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-medium text-zinc-400">
+                            <div class="flex -space-x-2">
+                                <span class="px-3 py-1 bg-zinc-800 rounded-3xl">Backend Simulation</span>
+                            </div>
+                            <span class="text-amber-400">Mini Project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERSHIP / EXTRA -->
+    <section class="bg-zinc-900 py-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="max-w-lg mx-auto">
+                <h2 class="text-4xl font-semibold mb-6">Coordinator @ 7th Sense Association</h2>
+                <p class="text-zinc-400 mb-10">
+                    Leading student initiatives that promote learning, innovation, and leadership. I organize events, manage teams, and help fellow students grow — exactly what I believe in: <span class="italic">"Learn. Build. Lead."</span>
+                </p>
+                <div class="inline-flex items-center gap-x-8 text-sm">
+                    <div class="flex items-center gap-x-2">
+                        <i class="fas fa-check-circle text-green-400"></i> Team Leadership
+                    </div>
+                    <div class="flex items-center gap-x-2">
+                        <i class="fas fa-check-circle text-green-400"></i> Event Planning
+                    </div>
+                    <div class="flex items-center gap-x-2">
+                        <i class="fas fa-check-circle text-green-400"></i> Student Empowerment
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-gradient-to-br from-blue-600 to-cyan-500 rounded-3xl p-16 text-center text-white">
+                <h2 class="text-5xl font-semibold mb-6">Ready to build something together?</h2>
+                <p class="text-2xl mb-10 max-w-lg mx-auto">
+                    I'm actively learning and open to collaborations, internships, or just a quick chat about tech!
+                </p>
+
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                    <a href="https://mail.google.com/mail/u/0/#inbox" class="bg-white text-zinc-950 font-semibold px-10 py-5 rounded-3xl flex items-center gap-x-3 text-xl">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+
+                    <a href="https://www.instagram.com/" target="_blank" class="border-2 border-white/80 hover:border-white font-semibold px-10 py-5 rounded-3xl flex items-center gap-x-3 text-xl">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/rithikasri-athirajasekar-bb41b8380/" target="_blank" class="border-2 border-white/80 hover:border-white font-semibold px-10 py-5 rounded-3xl flex items-center gap-x-3 text-xl">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+
+                <p class="mt-16 text-sm opacity-75">Coimbatore, Tamil Nadu • Available for campus opportunities and remote projects</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 text-center text-zinc-400 text-sm">
+            <p>Made with ❤️ by A. Rithika Sri • HTML + Tailwind CSS</p>
+            <p class="mt-2">This is your live portfolio preview! Feel free to customize colors, add your GitHub links, or make it even better.</p>
+            <div class="mt-8 flex justify-center gap-x-8">
+                <a href="https://github.com/rithu-007-c" class="hover:text-white"><i class="fab fa-github text-2xl"></i></a>
+                <a href="https://www.linkedin.com/in/rithikasri-athirajasekar-bb41b8380/" class="hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="https://www.instagram.com/loveo2o_07/" class="hover:text-white"><i class="fab fa-instagram text-2xl"></i></a>
+            </div>
+            <p class="text-xs mt-10">© 2026 A. Rithika Sri • Built as a beginner project to showcase my journey</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script initialization
+        function initializeTailwind() {
+            tailwind.config = {
+                content: [],
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Inter', 'system-ui', 'sans-serif'],
+                            display: ['Space Grotesk', 'sans-serif']
+                        }
+                    }
+                }
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu')
+            const icon = document.getElementById('menu-icon')
+            if (menu.classList.contains('hidden')) {
+                menu.style.display = 'block'
+                icon.classList.replace('fa-bars', 'fa-times')
+            } else {
+                menu.style.display = 'none'
+                icon.classList.replace('fa-times', 'fa-bars')
+            }
+        }
+
+        // Smooth scroll for anchor links
+        function enableSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') return
+                    e.preventDefault()
+                    const target = document.querySelector(this.getAttribute('href'))
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        })
+                    }
+                })
+            })
+        }
+
+        // Keyboard shortcut hint (for fun)
+        console.log('%c🚀 Portfolio ready! Press "P" for a surprise...', 'color:#3b82f6; font-family:monospace')
+
+        // Run everything when loaded
+        window.onload = function() {
+            initializeTailwind()
+            enableSmoothScroll()
+
+            // Easter egg: press "P" to highlight projects
+            document.addEventListener('keydown', function(e) {
+                if (e.key.toLowerCase() === 'p') {
+                    const projects = document.querySelectorAll('.project-card')
+                    projects.forEach((p, i) => {
+                        setTimeout(() => {
+                            p.style.boxShadow = '0 0 0 4px rgb(59 130 246)'
+                            setTimeout(() => p.style.boxShadow = '', 800)
+                        }, i * 80)
+                    })
+                }
+            })
+
+            console.log('✅ Your beautiful portfolio is live and ready to impress recruiters!')
+        }
+    </script>
+</body>
+
+</html>
